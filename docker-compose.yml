@@ -1,0 +1,13 @@
+---
+services:
+    kavita:
+        image: jvmilazz0/kavita:latest
+        environment:
+            - TZ=Europe/Moscow
+        volumes:
+            - ./books:/books
+            - ./manga:/manga
+            - ./data:/kavita/config
+        ports:
+            - "5001:5000"
+        restart: unless-stopped
