@@ -1,2 +1,4 @@
-certs
+certs/mycert.crt
+certs/mykey.key
+certs/openssl.cnf
 nginx.conf

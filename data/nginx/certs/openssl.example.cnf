@@ -1,0 +1,22 @@
+[ req ]
+default_bits = 2048
+default_md = sha256
+default_keyfile = privkey.pem
+distinguished_name = req_distinguished_name
+prompt = no
+x509_extensions = v3_ca
+
+[ req_distinguished_name ]
+C = RU
+ST = Moscow
+L = Moscow
+O = ECorp
+OU = IT Department
+CN = example.com
+emailAddress = admin@example.com
+
+[ v3_ca ]
+subjectKeyIdentifier=hash
+authorityKeyIdentifier=keyid:always,issuer
+basicConstraints = critical, CA:true
+keyUsage = critical, digitalSignature, cRLSign, keyCertSign
