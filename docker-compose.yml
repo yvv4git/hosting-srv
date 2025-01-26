@@ -18,10 +18,12 @@ services:
     ports:
       - "80:80"
       - "443:443"
+      - "8118:8118"
     volumes:
       - ./data/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./data/nginx/certs/mycert.crt:/etc/nginx/certs/mycert.crt:ro
       - ./data/nginx/certs/mykey.key:/etc/nginx/certs/mykey.key:ro
+      - ./data/nginx/passwd:/etc/nginx/passwd:ro
     depends_on:
       - kavita
     restart: unless-stopped

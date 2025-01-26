@@ -9,5 +9,5 @@ gen_certs:
 
 install_ubuntu_deps:
 	apt update && apt install -y \
-		nload iperf3
+		nload iperf3 net-tools
 	snap install docker
