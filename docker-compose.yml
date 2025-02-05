@@ -16,7 +16,7 @@ services:
   nginx:
     image: nginx:latest
     ports:
-      - "80:80"
+      # - "80:80" # HTTP disabled
       - "443:443"
       - "8118:8118"
     volumes:
