@@ -45,11 +45,17 @@ services:
       - "8118:8118"
     volumes:
       - ./data/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./data/nginx/certs/mycert.crt:/etc/nginx/certs/mycert.crt:ro
-      - ./data/nginx/certs/mykey.key:/etc/nginx/certs/mykey.key:ro
-      - ./data/nginx/certs/fullchain.pem:/etc/nginx/certs/fullchain.pem:ro
-      - ./data/nginx/certs/privkey.pem:/etc/nginx/certs/privkey.pem:ro
-      - ./data/nginx/passwd:/etc/nginx/passwd:ro
+      # Own-signed
+      # - ./data/nginx/certs/mycert.crt:/etc/nginx/certs/mycert.crt:ro
+      # - ./data/nginx/certs/mykey.key:/etc/nginx/certs/mykey.key:ro
+      # YVV
+      - ./data/nginx/certs/yvv-fullchain.pem:/etc/nginx/certs/yvv-fullchain.pem:ro
+      - ./data/nginx/certs/yvv-privkey.pem:/etc/nginx/certs/yvv-privkey.pem:ro
+      # Playmore
+      - ./data/nginx/certs/playmore-fullchain.pem:/etc/nginx/certs/playmore-fullchain.pem:ro
+      - ./data/nginx/certs/playmore-privkey.pem:/etc/nginx/certs/playmore-privkey.pem:ro
+      # Auth-based
+      # - ./data/nginx/passwd:/etc/nginx/passwd:ro
     depends_on:
       - kavita
     restart: unless-stopped
