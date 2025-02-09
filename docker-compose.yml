@@ -58,6 +58,8 @@ services:
       # - ./data/nginx/passwd:/etc/nginx/passwd:ro
     depends_on:
       - kavita
+      - userinfo-frontend
+      - userinfo-backend
     networks:
       - hosting-network
     restart: no
