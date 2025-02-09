@@ -18,9 +18,9 @@ services:
   userinfo-backend:
     image: yvv4docker/userinfo-backend:latest
     env_file:
-      - .env
-    volumes:
-      - ./data/userinfo/.env:/root/.env
+      - ./data/userinfo/.env
+    # volumes:
+    #   - ./data/userinfo/.env:/root/.env
     networks:
       - hosting-network
   
@@ -31,9 +31,7 @@ services:
     depends_on:
       - userinfo-backend
     env_file:
-      - .env
-    volumes:
-      - ./data/userinfo/.env:/app/.env
+      - ./data/userinfo/.env
     networks:
       - hosting-network
 
