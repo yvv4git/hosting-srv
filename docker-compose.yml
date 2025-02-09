@@ -12,6 +12,30 @@ services:
     ports:
       - "5000:5000"
     restart: unless-stopped
+    networks:
+      - hosting-network
+
+  userinfo-backend:
+    image: yvv4docker/userinfo-backend:latest
+    env_file:
+      - .env
+    volumes:
+      - ./data/userinfo/.env:/root/.env
+    networks:
+      - hosting-network
+  
+  userinfo-frontend:
+    image: yvv4docker/userinfo-frontend:latest
+    ports:
+      - "8080:8080"
+    depends_on:
+      - userinfo-backend
+    env_file:
+      - .env
+    volumes:
+      - ./data/userinfo/.env:/app/.env
+    networks:
+      - hosting-network
 
   nginx:
     image: nginx:latest
@@ -29,3 +53,9 @@ services:
     depends_on:
       - kavita
     restart: unless-stopped
+    networks:
+      - hosting-network
+
+networks:
+  hosting-network:
+    driver: bridge
