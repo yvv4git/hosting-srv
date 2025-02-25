@@ -9,8 +9,8 @@ services:
       - ./data/kavita/books:/books
       - ./data/kavita/manga:/manga
       - ./data/kavita/config:/kavita/config
-    ports:
-      - "5000:5000"
+    # ports:
+    #   - "5000:5000"
     networks:
       - hosting-network
     restart: no
