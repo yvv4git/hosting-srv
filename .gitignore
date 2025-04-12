@@ -25,3 +25,6 @@ go.work.sum
 .env
 passwd
 nginx.conf
+
+# IDE
+.idea/
