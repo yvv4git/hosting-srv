@@ -65,6 +65,22 @@ services:
       - hosting-network
     restart: no
 
+  tor:
+    image: dperson/torproxy:latest
+    container_name: tor
+    restart: unless-stopped
+    ports:
+      - "9050:9050"  # SOCKS5
+      - "9051:9051"  # Control port (если нужен)
+    volumes:
+      - ./data/tor/data:/var/lib/tor     # Постоянные данные Tor
+      - ./data/tor/torrc:/etc/tor/torrc  # Кастомный конфиг
+    environment:
+      - TZ=Europe/Moscow
+      - LOG_LEVEL=notice
+    networks:
+      - hosting-network
+
 networks:
   hosting-network:
     driver: bridge
