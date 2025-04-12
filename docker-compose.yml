@@ -67,7 +67,7 @@ services:
 
   tor:
     image: dperson/torproxy:latest
-    container_name: tor
+    container_name: hosting-srv-tor
     restart: unless-stopped
     ports:
       - "9050:9050"  # SOCKS5
