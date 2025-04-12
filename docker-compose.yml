@@ -72,7 +72,7 @@ services:
     ports:
       - "127.0.0.1:9050:9050"  # SOCKS5
       - "127.0.0.1:9051:9051"  # Control port (если нужен)
-      - "127.0.0.1:5353:5353"  # (DNS)
+      - "127.0.0.1:5353:5353"  # DNS
     volumes:
       - ./data/tor/data:/var/lib/tor     # Постоянные данные Tor
       - ./data/tor/torrc:/etc/tor/torrc  # Кастомный конфиг
