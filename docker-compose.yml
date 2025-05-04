@@ -82,6 +82,16 @@ services:
     networks:
       - hosting-network
 
+  firefox:
+    image: lscr.io/linuxserver/firefox:latest
+    container_name: firefox
+    volumes:
+      - ./data/firefox:/config:rw
+    shm_size: 2g
+    ports:
+      - 127.0.0.1:3000:3000
+    restart: on-failure:2
+
 networks:
   hosting-network:
     driver: bridge
