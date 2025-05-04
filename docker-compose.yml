@@ -3,6 +3,8 @@ version: '3.8'
 services:
   kavita:
     image: jvmilazz0/kavita:latest
+    container_name: hosting-srv-kavita
+    hostname: kavita
     environment:
       - TZ=Europe/Moscow
     volumes:
@@ -17,6 +19,8 @@ services:
 
   userinfo-backend:
     image: yvv4docker/userinfo-backend:latest
+    container_name: hosting-srv-userinfo-backend
+    hostname: userinfo-backend
     env_file:
       - ./data/userinfo/.env
     # volumes:
@@ -29,6 +33,8 @@ services:
   
   userinfo-frontend:
     image: yvv4docker/userinfo-frontend:latest
+    container_name: hosting-srv-userinfo-frontend
+    hostname: userinfo-frontend
     ports:
       - "8080:8080"
     depends_on:
@@ -41,6 +47,8 @@ services:
 
   nginx:
     image: nginx:latest
+    container_name: hosting-srv-nginx
+    hostname: nginx
     ports:
       # - "80:80" # HTTP disabled
       - "443:443"
